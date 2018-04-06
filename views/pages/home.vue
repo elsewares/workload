@@ -10,9 +10,7 @@
               </v-toolbar>
               <v-container fluid>
                 <v-card-text>
-                  This is a simple layout for a page. The entire application is simply swapping out components in
-                  this center area. Generally I make them look like cards, which I then fill with the proper
-                  vuetify components to best present data.
+                  This is my change to the template!!
                   <br>
                   <br>
                   <hr>
