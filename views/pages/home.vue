@@ -91,7 +91,8 @@
 </template>
 
 //testing content placement
-    <body> Experimenting with font and css features within a text box.
+    <body> 
+    <p>Experimenting with font and css features within a text box.</p>
     </body>
 
 <script>
