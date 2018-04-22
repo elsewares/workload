@@ -53,6 +53,7 @@
       </v-content>
     </main>
     
+    
     <v-footer :fixed="fixed" app>
       <span> Template created by <a href="http://github.com/aturingmachine">Vincent Blom</a></span>
     </v-footer>
