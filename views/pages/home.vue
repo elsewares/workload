@@ -14,7 +14,7 @@
     >
       <v-list
         dense
-        class="grey lighten-4"
+        class="black--text"
       >
         <template v-for="(item, i) in items">
           <v-layout
