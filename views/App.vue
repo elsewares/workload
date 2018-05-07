@@ -18,10 +18,10 @@
           :href="item.href"
         >
           <v-list-tile-action>
-            <v-icon class="white--text" v-html="item.icon"></v-icon>
+            <v-icon class="dark grey--text--text" v-html="item.icon"></v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title class="white--text" v-text="item.title"></v-list-tile-title>
+            <v-list-tile-title class="blue-grey--text" v-text="item.title"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>

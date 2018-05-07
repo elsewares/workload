@@ -1,5 +1,10 @@
 <template>
+
+    
+
   <v-app id="inspire">
+  
+    <p>Sample Title</p>
     <v-navigation-drawer
       fixed
       clipped
@@ -38,6 +43,8 @@
             v-else
             @click=""
           >
+         
+    
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -50,9 +57,9 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="amber" app absolute clipped-left>
+    <v-toolbar color="pale green" app absolute clipped-left>
       <v-toolbar-side-icon @click.native="drawer = !drawer"></v-toolbar-side-icon>
-      <span class="title ml-3 mr-5">Google&nbsp;<span class="text">Keep</span></span>
+      <span class="title ml-3 mr-5">Personal&nbsp;<span class="text">Notes</span></span>
       <v-text-field
         solo-inverted
         flat
@@ -60,9 +67,20 @@
         prepend-icon="search"
       ></v-text-field>
       <v-spacer></v-spacer>
+      <!-- Add Dialog Button for Note -->
+      <v-dialog v-model="addNoteDialogue" lazy absolute max-width="50%">
+        <v-btn icon slot="activator">
+          <v-icon> control_point </v-icon>
+        </v-btn>
+
+        <!-- Add Dialog -->
+        <note-create-dialogue
+                @submission="submit" @closeAdd="addNoteDialogue = false">
+        </note-create-dialogue>
+      </v-dialog>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height class="grey lighten-4">
+      <v-container fluid fill-height class="dark grey--text">
         <v-layout justify-center align-center>
           <v-flex shrink>
             <v-tooltip right>
@@ -73,13 +91,13 @@
                 target="_blank"
                 slot="activator"
               >
-                <v-icon large>code</v-icon>
+                <v-icon small>code</v-icon>
               </v-btn>
               <span>Source</span>
             </v-tooltip>
             <v-tooltip right>
-              <v-btn icon large href="https://codepen.io/johnjleider/pen/jZQNbd" target="_blank" slot="activator">
-                <v-icon large>mdi-codepen</v-icon>
+              <v-btn icon small href="https://codepen.io/johnjleider/pen/jZQNbd" target="_blank" slot="activator">
+                <v-icon small>mdi-codepen</v-icon>
               </v-btn>
               <span>Codepen</span>
             </v-tooltip>
@@ -87,18 +105,19 @@
         </v-layout>
       </v-container>
     </v-content>
+
   </v-app>
 </template>
 
-//testing content placement
-    <body> 
-    <p>Experimenting with font and css features within a text box.</p>
-    </body>
+
 
 <script>
+  import NoteCreateDialogue from "../components/noteCreateDialogue";
   export default {
-    data: () => ({
+      components: {NoteCreateDialogue},
+      data: () => ({
       drawer: null,
+          addNoteDialogue: false,
       items: [
         { icon: 'lightbulb_outline', text: 'Notes' },
         { icon: 'touch_app', text: 'Reminders' },
@@ -108,12 +127,8 @@
         { divider: true },
         { icon: 'archive', text: 'Archive' },
         { icon: 'delete', text: 'Trash' },
-        { divider: true },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Trash' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Keyboard shortcuts' }
+        { icon: 'Recent Notes', text: 'New'},
+
       ]
     }),
     props: {
